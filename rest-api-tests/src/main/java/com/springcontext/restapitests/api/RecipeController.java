@@ -3,7 +3,6 @@ package com.springcontext.restapitests.api;
 import com.springcontext.restapitests.api.dto.RecipeDto;
 import com.springcontext.restapitests.api.helpers.RecipeHelper;
 import com.springcontext.restapitests.domain.entities.Recipe;
-import com.springcontext.restapitests.services.IngredientService;
 import com.springcontext.restapitests.services.RecipeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,7 @@ public class RecipeController {
 
     @Autowired
     private RecipeService recipeService;
-
-    @Autowired
-    private IngredientService ingredientService;
-
+    
     @GetMapping("/{recipeName}")
     public RecipeDto getRecipe(@PathVariable String recipeName) throws Exception {
 
