@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/recipes")
 public class RecipeController {
 
+    private final RecipeService recipeService;
+
     @Autowired
-    private RecipeService recipeService;
-    
+    public RecipeController(RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
+
     @GetMapping("/{recipeName}")
     public RecipeDto getRecipe(@PathVariable String recipeName) throws Exception {
 

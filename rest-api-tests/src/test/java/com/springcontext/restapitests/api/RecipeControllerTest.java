@@ -9,10 +9,8 @@ import com.springcontext.restapitests.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -38,12 +36,11 @@ public class RecipeControllerTest {
     @Mock
     private RecipeService recipeService;
 
-    @InjectMocks
     private RecipeController recipeController;
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        this.recipeController = new RecipeController(this.recipeService);
     }
 
     @Test

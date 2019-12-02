@@ -9,10 +9,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.HashSet;
@@ -29,12 +27,11 @@ public class RecipeServiceTest {
     @Mock
     private RecipeRepository recipeRepository;
 
-    @InjectMocks
     private RecipeService recipeService;
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        this.recipeService = new RecipeService(this.recipeRepository);
     }
 
     @Test
